@@ -224,8 +224,8 @@ namespace patches
 			utils::hook::set<uint8_t>(0x54CFF0_b, 0xC3);
 
 			// client side aim assist dvar
-			dvars::aimassist_enabled = dvars::register_bool("aimassist_enabled", true,
-				game::DvarFlags::DVAR_FLAG_SAVED,
+			dvars::aimassist_enabled = dvars::register_bool("sv_aimassist", true,
+				game::DvarFlags::DVAR_FLAG_REPLICATED,
 				"Enables aim assist for controllers");
 			utils::hook::call(0xE857F_b, aim_assist_add_to_target_list);
 
